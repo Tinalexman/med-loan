@@ -15,6 +15,9 @@ class Pages {
   static String get uploadImage => "upload-image";
   static String get profile => "profile";
   static String get home => "home";
+  static String get productDetail => "product-detail";
+  static String get products => "products";
+  static String get cart => "cart";
 }
 
 

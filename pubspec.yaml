@@ -36,6 +36,7 @@ dependencies:
   faker:
   dropdown_button2:
   is_first_run:
+  badges:
 
 dev_dependencies:
   flutter_test:
