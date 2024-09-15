@@ -2,10 +2,8 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:iconsax_plus/iconsax_plus.dart';
 
 import 'constants.dart';
-import 'functions.dart';
 
 const SpinKitDancingSquare loader = SpinKitDancingSquare(
   color: primary,
@@ -32,7 +30,7 @@ class TabHeaderDelegate extends SliverPersistentHeaderDelegate {
   Widget build(
           BuildContext context, double shrinkOffset, bool overlapsContent) =>
       Container(
-        color: context.isDark ? Colors.black : Colors.white,
+        color: Colors.white,
         child: tabBar,
       );
 
@@ -120,7 +118,6 @@ class SpecialForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool darkTheme = context.isDark;
     return SizedBox(
       width: width,
       height: allowHeightExpand ? null : height,
@@ -149,7 +146,7 @@ class SpecialForm extends StatelessWidget {
         decoration: InputDecoration(
           errorMaxLines: 1,
           errorStyle: const TextStyle(height: 0, fontSize: 0),
-          fillColor: fillColor ?? (darkTheme ? monokai : light),
+          fillColor: fillColor ?? light,
           filled: true,
           contentPadding: padding ??
               EdgeInsets.symmetric(
@@ -188,7 +185,7 @@ class SpecialForm extends StatelessWidget {
           hintStyle: hintStyle ??
               context.textTheme.bodyLarge!.copyWith(
                 fontWeight: FontWeight.w300,
-                color: darkTheme ? Colors.white38 : Colors.black45,
+                color: Colors.black45,
               ),
         ),
         onChanged: (value) {
@@ -280,7 +277,8 @@ class ComboBox extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
             style: context.textTheme.bodyLarge!.copyWith(
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w300,
+              color: Colors.black45,
             ),
           ),
         ),
@@ -321,7 +319,7 @@ class ComboBox extends StatelessWidget {
           elevation: buttonElevation,
         ),
         iconStyleData: IconStyleData(
-          icon: icon ?? const Icon(Icons.arrow_forward_ios_outlined),
+          icon: icon ?? const Icon(Icons.arrow_drop_down),
           iconSize: iconSize ?? 12,
           iconEnabledColor: iconEnabledColor,
           iconDisabledColor: iconDisabledColor,

@@ -51,35 +51,13 @@ class _FiberExpressState extends State<FiberExpress> {
       builder: (_, child) => MaterialApp.router(
         title: 'Fiber Express',
         debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.system,
+        themeMode: ThemeMode.light,
         theme: FlexColorScheme.light(
-          scheme: FlexScheme.aquaBlue,
+          scheme: FlexScheme.greenM3,
           fontFamily: "Montserrat",
           useMaterial3: true,
           appBarStyle: FlexAppBarStyle.scaffoldBackground,
-        ).toTheme.copyWith(
-          cardTheme: const CardTheme(
-            elevation: 0.0,
-            color: null,
-            shape: LinearBorder(),
-            shadowColor: Colors.black12,
-            surfaceTintColor: Colors.transparent,
-          ),
-        ),
-        darkTheme: FlexColorScheme.dark(
-          scheme: FlexScheme.aquaBlue,
-          fontFamily: "Montserrat",
-          useMaterial3: true,
-          appBarStyle: FlexAppBarStyle.scaffoldBackground,
-        ).toTheme.copyWith(
-          cardTheme: const CardTheme(
-            elevation: 0.0,
-            color: null,
-            shape: LinearBorder(),
-            shadowColor: Colors.white10,
-            surfaceTintColor: Colors.transparent,
-          ),
-        ),
+        ).toTheme,
         routerConfig: router,
       ),
       splitScreenMode: true,

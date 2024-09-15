@@ -1,10 +1,10 @@
 import 'package:animated_switcher_plus/animated_switcher_plus.dart';
-import 'package:med_loan/misc/constants.dart';
-import 'package:med_loan/misc/functions.dart';
-import 'package:med_loan/misc/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:med_loan/misc/constants.dart';
+import 'package:med_loan/misc/functions.dart';
+import 'package:med_loan/misc/widgets.dart';
 
 class RegisterPage extends ConsumerStatefulWidget {
   const RegisterPage({super.key});
@@ -18,12 +18,12 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
   final GlobalKey<FormState> formKey = GlobalKey();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController fullNameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
 
   final Map<String, String> _authDetails = {
-    "firstName": "",
-    "lastName": "",
+    "fullName": "",
+    "phone": "",
     "email": "",
     "password": "",
   };
@@ -32,8 +32,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
 
   @override
   void dispose() {
-    lastNameController.dispose();
-    firstNameController.dispose();
+    phoneController.dispose();
+    fullNameController.dispose();
     passwordController.dispose();
     emailController.dispose();
     super.dispose();
@@ -41,7 +41,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -76,54 +75,52 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                     children: [
                       SizedBox(height: 20.h),
                       Text(
-                        "First Name",
+                        "Full Name",
                         style: context.textTheme.labelLarge,
                       ),
                       SizedBox(height: 2.h),
                       SpecialForm(
                         width: 390.w,
                         height: 40.h,
-                        controller: firstNameController,
+                        controller: fullNameController,
                         prefix: Icon(
                           Icons.person_2_outlined,
                           size: 18.r,
                         ),
                         onValidate: (value) {
                           if (value!.isEmpty) {
-                            showToast("Invalid First Name", context);
+                            showToast("Invalid Name", context);
                             return '';
                           }
                           return null;
                         },
-                        onSave: (value) => _authDetails["firstName"] = value!,
-                        hint: "e.g John",
+                        onSave: (value) => _authDetails["fullName"] = value!,
+                        hint: "e.g John Doe",
                       ),
                       SizedBox(height: 10.h),
                       Text(
-                        "Last Name",
+                        "Phone Number",
                         style: context.textTheme.labelLarge,
                       ),
                       SizedBox(height: 2.h),
                       SpecialForm(
                         width: 390.w,
                         height: 40.h,
-                        controller: lastNameController,
-                         prefix: Icon(
-                          Icons.person_2_outlined,
+                        controller: phoneController,
+                        prefix: Icon(
+                          Icons.phone,
                           size: 18.r,
                         ),
-
+                        type: TextInputType.phone,
                         onValidate: (value) {
                           if (value!.isEmpty) {
-                            showToast(
-                                "Invalid Last Name",
-                                context);
+                            showToast("Invalid Phone Number", context);
                             return '';
                           }
                           return null;
                         },
-                        onSave: (value) => _authDetails["lastName"] = value!,
-                        hint: "e.g Doe",
+                        onSave: (value) => _authDetails["phone"] = value!,
+                        hint: "e.g 09012345678",
                       ),
                       SizedBox(height: 10.h),
                       Text(
@@ -192,12 +189,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                         onSave: (value) => _authDetails["password"] = value!,
                         hint: "********",
                       ),
-
-
                       SizedBox(height: 20.h),
-
-
-
                       SizedBox(
                         height: 100.h,
                       ),
@@ -211,14 +203,13 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                           ),
                         ),
                         onPressed: () {
-                          context.router.pop();
+                          context.router.pushReplacementNamed(Pages.kyc);
                         },
                         child: Text(
                           "Create",
                           style: context.textTheme.bodyLarge!.copyWith(
                             color: Colors.white,
                             fontWeight: FontWeight.w700,
-                            fontFamily: "Montserrat",
                           ),
                         ),
                       ),

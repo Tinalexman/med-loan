@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:med_loan/pages/auth/kyc.dart';
 import 'package:med_loan/pages/auth/login.dart';
 import 'package:med_loan/pages/auth/register.dart';
 
@@ -15,4 +16,9 @@ final List<GoRoute> routes = [
     name: Pages.register,
     builder: (_, __) => const RegisterPage(),
   ),
+  GoRoute(
+    path: Pages.kyc.path,
+    name: Pages.kyc,
+    builder: (_, __) => const KYCPage(),
+  )
 ];
