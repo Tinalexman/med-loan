@@ -20,17 +20,12 @@ class _KYCPageState extends ConsumerState<KYCPage>
   final TextEditingController ninController = TextEditingController();
   final TextEditingController occupationController = TextEditingController();
 
-  //gender, dob, nin, photo
-  // Employed/Unempoyed
-  // Occupation
-
   final Map<String, String> _authDetails = {
     "gender": "",
     "dob": "",
     "nin": "",
     "status": "",
     "occupation": "",
-    "photo": "",
   };
 
   DateTime? dateOfBirth;
@@ -155,7 +150,10 @@ class _KYCPageState extends ConsumerState<KYCPage>
                         hint: "Select Gender",
                         value: gender,
                         dropdownItems: const ["Male", "Female"],
-                        onChanged: (e) => setState(() => gender = e),
+                        onChanged: (e) => setState(() {
+                          gender = e;
+                          _authDetails["gender"] = e!;
+                        }),
                         buttonHeight: 40.h,
                         buttonWidth: 390.w,
                         buttonDecoration: BoxDecoration(
@@ -179,7 +177,10 @@ class _KYCPageState extends ConsumerState<KYCPage>
                           borderRadius: BorderRadius.circular(7.5.r),
                           color: light,
                         ),
-                        onChanged: (e) => setState(() => occupationStatus = e),
+                        onChanged: (e) => setState(() {
+                          occupationStatus = e;
+                          _authDetails["status"] = e!;
+                        }),
                       ),
                       SizedBox(height: 10.h),
                       if (occupationStatus == "Employed")
@@ -225,10 +226,13 @@ class _KYCPageState extends ConsumerState<KYCPage>
                           ),
                         ),
                         onPressed: () {
-                          context.router.pop();
+                          context.router.pushNamed(
+                            Pages.uploadImage,
+                            extra: _authDetails,
+                          );
                         },
                         child: Text(
-                          "Finish",
+                          "Proceed",
                           style: context.textTheme.bodyLarge!.copyWith(
                             color: Colors.white,
                             fontWeight: FontWeight.w700,

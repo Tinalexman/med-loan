@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:med_loan/pages/auth/kyc.dart';
 import 'package:med_loan/pages/auth/login.dart';
 import 'package:med_loan/pages/auth/register.dart';
+import 'package:med_loan/pages/auth/upload_image.dart';
 
 import 'constants.dart';
 
@@ -20,5 +21,10 @@ final List<GoRoute> routes = [
     path: Pages.kyc.path,
     name: Pages.kyc,
     builder: (_, __) => const KYCPage(),
+  ),
+  GoRoute(
+    name: Pages.uploadImage,
+    path: Pages.uploadImage.path,
+    builder: (_, state) => UploadImage(data: state.extra as Map<String, String>)
   )
 ];
