@@ -18,22 +18,22 @@ Future<void> main() async {
 
   bool firstRun = await IsFirstRun.isFirstRun();
 
-  runApp(ProviderScope(child: FiberExpress(firstRun: firstRun)));
+  runApp(ProviderScope(child: MedLoan(firstRun: firstRun)));
 }
 
-class FiberExpress extends StatefulWidget {
+class MedLoan extends StatefulWidget {
   final bool firstRun;
 
-  const FiberExpress({
+  const MedLoan({
     super.key,
     required this.firstRun,
   });
 
   @override
-  State<FiberExpress> createState() => _FiberExpressState();
+  State<MedLoan> createState() => _MedLoanState();
 }
 
-class _FiberExpressState extends State<FiberExpress> {
+class _MedLoanState extends State<MedLoan> {
   late GoRouter router;
 
   @override
