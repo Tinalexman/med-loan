@@ -214,7 +214,7 @@ class _KYCPageState extends ConsumerState<KYCPage>
                           ],
                         ),
                       SizedBox(
-                        height: 100.h,
+                        height: 130.h,
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(

@@ -61,20 +61,20 @@ class _UploadImageState extends ConsumerState<UploadImage>
                     }
                   },
                   child: CircleAvatar(
-                    radius: 80.r,
+                    radius: 120.r,
                     backgroundColor: image == null ? light : null,
                     backgroundImage: image != null ? MemoryImage(image!) : null,
                     child: image == null
                         ? Icon(
                             Icons.image_outlined,
-                            size: 32.r,
+                            size: 48.r,
                             color: monokai,
                           )
                         : null,
                   ),
                 ),
                 SizedBox(
-                  height: 300.h,
+                  height: 250.h,
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -86,7 +86,7 @@ class _UploadImageState extends ConsumerState<UploadImage>
                     ),
                   ),
                   onPressed: () {
-                    context.router.pop();
+                    context.router.pushReplacementNamed(Pages.home);
                   },
                   child: Text(
                     "Finish",

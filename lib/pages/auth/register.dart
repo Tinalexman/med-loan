@@ -191,7 +191,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                       ),
                       SizedBox(height: 20.h),
                       SizedBox(
-                        height: 100.h,
+                        height: 130.h,
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -206,7 +206,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage>
                           context.router.pushReplacementNamed(Pages.kyc);
                         },
                         child: Text(
-                          "Create",
+                          "Register",
                           style: context.textTheme.bodyLarge!.copyWith(
                             color: Colors.white,
                             fontWeight: FontWeight.w700,

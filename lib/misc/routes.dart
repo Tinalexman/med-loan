@@ -3,6 +3,8 @@ import 'package:med_loan/pages/auth/kyc.dart';
 import 'package:med_loan/pages/auth/login.dart';
 import 'package:med_loan/pages/auth/register.dart';
 import 'package:med_loan/pages/auth/upload_image.dart';
+import 'package:med_loan/pages/home/home.dart';
+import 'package:med_loan/pages/profile/profile.dart';
 
 import 'constants.dart';
 
@@ -25,6 +27,16 @@ final List<GoRoute> routes = [
   GoRoute(
     name: Pages.uploadImage,
     path: Pages.uploadImage.path,
-    builder: (_, state) => UploadImage(data: state.extra as Map<String, String>)
+    builder: (_, state) => UploadImage(data: state.extra as Map<String, String>),
+  ),
+  GoRoute(
+    name: Pages.home,
+    path: Pages.home.path,
+    builder: (_, __) => const Homepage(),
+  ),
+  GoRoute(
+    name: Pages.profile,
+    path: Pages.profile.path,
+    builder: (_, __) => const ProfilePage(),
   )
 ];

@@ -13,6 +13,8 @@ class Pages {
   static String get register => "register";
   static String get kyc => "kyc";
   static String get uploadImage => "upload-image";
+  static String get profile => "profile";
+  static String get home => "home";
 }
 
 

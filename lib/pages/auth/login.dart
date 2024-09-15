@@ -159,7 +159,7 @@ class _LoginPageState extends ConsumerState<LoginPage>
                           ),
                         ],
                       ),
-                      SizedBox(height: 100.h),
+                      SizedBox(height: 250.h),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           minimumSize: Size(390.w, 50.h),
@@ -170,7 +170,7 @@ class _LoginPageState extends ConsumerState<LoginPage>
                           ),
                         ),
                         onPressed: () {
-                          // context.router.pushReplacementNamed(Pages.dashboard);
+                          context.router.pushReplacementNamed(Pages.home);
                         },
                         child: Text(
                           "Log In",
